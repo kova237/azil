@@ -36,8 +36,11 @@ Public Class Form1
         Else
             If ds.Tables("login").Rows.Count <> 0 Then
 
-                Form2.Show()
+                poc_zaslon.Show()
                 Me.Hide()
+                txtPassword.Clear()
+                txtUsername.Clear()
+
             Else
                 MsgBox("Neuspješno logiranje")
             End If

@@ -76,10 +76,28 @@
     <Compile Include="..\..\..\azil\azil.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.vb">
-      <DependentUpon>Form2.vb</DependentUpon>
+    <Compile Include="azilanti.Designer.vb">
+      <DependentUpon>azilanti.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form2.vb">
+    <Compile Include="azilanti.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="namirnice.Designer.vb">
+      <DependentUpon>namirnice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="namirnice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="poc_zaslon.Designer.vb">
+      <DependentUpon>poc_zaslon.vb</DependentUpon>
+    </Compile>
+    <Compile Include="poc_zaslon.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="djelatnici.Designer.vb">
+      <DependentUpon>djelatnici.vb</DependentUpon>
+    </Compile>
+    <Compile Include="djelatnici.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -97,13 +115,27 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="_16014_DBDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_16014_DBDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="..\..\..\azil\azil.resx">
       <DependentUpon>azil.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.vb</DependentUpon>
+    <EmbeddedResource Include="azilanti.resx">
+      <DependentUpon>azilanti.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="djelatnici.resx">
+      <DependentUpon>djelatnici.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="namirnice.resx">
+      <DependentUpon>namirnice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="poc_zaslon.resx">
+      <DependentUpon>poc_zaslon.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -123,6 +155,17 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="_16014_DBDataSet.xsc">
+      <DependentUpon>_16014_DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_16014_DBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_16014_DBDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_16014_DBDataSet.xss">
+      <DependentUpon>_16014_DBDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
