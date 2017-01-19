@@ -8,17 +8,24 @@ Public Class azilanti
     Dim conn As SqlConnection
     Dim cmd As SqlCommand
 
+    Sub connectToDatabase()
 
+        conn = New SqlConnection(
+            "Data Source=31.147.204.119\PISERVER,1433;Initial Catalog=16014_DB;User ID=16014_User; Password=eY4PSzGY")
+        conn.Open()
+    End Sub
+
+    Sub disconnectDatabase()
+        conn.Close()
+
+    End Sub
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
-        conn = New SqlConnection
-        conn.ConnectionString = "Data Source=31.147.204.119\PISERVER,1433;Initial Catalog=16014_DB;User ID=16014_User; Password=eY4PSzGY"
+        connectToDatabase()
         Dim reader As SqlDataReader
 
         Try
-            conn.Open()
             Dim upit As String
 
             upit = "insert into azilanti (ime,prezime,status,nacionalnost,datum_rođenja,datum_dolaska,datum_odlaska) values ('" & TextBox1.Text & "' ,'" & TextBox2.Text & "' ,'" & TextBox7.Text & "' ,'" & TextBox3.Text & "','" & datum_rođenja.Text & "','" & datum_dolaska.Text & "','" & datum_odlaska.Text & "' )"
@@ -26,11 +33,13 @@ Public Class azilanti
             cmd = New SqlCommand(upit, conn)
             reader = cmd.ExecuteReader
             MessageBox.Show("Zapis je spremljen")
-            conn.Close()
+            disconnectDatabase()
+
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         Finally
-            conn.Dispose()
+            disconnectDatabase()
+
 
 
         End Try
@@ -83,12 +92,11 @@ Public Class azilanti
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        conn = New SqlConnection
-        conn.ConnectionString = "Data Source=31.147.204.119\PISERVER,1433;Initial Catalog=16014_DB;User ID=16014_User; Password=eY4PSzGY"
+        connectToDatabase()
+
         Dim reader As SqlDataReader
 
         Try
-            conn.Open()
             Dim upit As String
             upit = "update azilanti set ime= '" & TextBox6.Text & "' ,prezime= '" & TextBox8.Text & "' ,status= '" & TextBox9.Text & "' ,nacionalnost= '" & TextBox10.Text & "',datum_rođenja= '" & DateTimePicker3.Text & "',datum_dolaska= '" & DateTimePicker2.Text & "',datum_odlaska= '" & DateTimePicker1.Text & "' where azilant_id= '" & TextBox11.Text & "' "
 
@@ -99,19 +107,17 @@ Public Class azilanti
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         Finally
-            conn.Dispose()
-
+            disconnectDatabase()
 
         End Try
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        conn = New SqlConnection
-        conn.ConnectionString = "Data Source=31.147.204.119\PISERVER,1433;Initial Catalog=16014_DB;User ID=16014_User; Password=eY4PSzGY"
+        connectToDatabase()
+
         Dim reader As SqlDataReader
 
         Try
-            conn.Open()
             Dim upit As String
 
 
@@ -131,8 +137,7 @@ Public Class azilanti
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         Finally
-            conn.Dispose()
-
+            disconnectDatabase()
 
         End Try
 

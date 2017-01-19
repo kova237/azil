@@ -125,6 +125,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_16014_DBDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_16014_DBDataSet1.vb">
+      <DependentUpon>_16014_DBDataSet1.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="..\..\..\azil\azil.resx">
