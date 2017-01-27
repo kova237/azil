@@ -10,7 +10,6 @@ Public Class Form1
     Private cmd As SqlCommand
     Private sql As String
 
-
     Private Sub connection()
 
         If conn.State = ConnectionState.Closed Then
@@ -19,16 +18,20 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        
-    End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+
+        Dim obj As New azilanti
+        Dim obj2 As New djelatnici
+        obj2.korime = txtUsername.Text
+        obj.korime = txtUsername.Text
         connection()
+
         sql = "Select * from login Where korisničko_ime= '" & txtUsername.Text & "' And lozinka='" & txtPassword.Text & "' "
         da = New SqlDataAdapter(sql, conn)
         Dim ds As New DataSet
         da.Fill(ds, "login")
+
         If txtUsername.Text = "" Then
             MsgBox("Unesite korisničko ime")
         ElseIf txtPassword.Text = "" Then
@@ -36,22 +39,29 @@ Public Class Form1
         Else
             If ds.Tables("login").Rows.Count <> 0 Then
 
+
+
                 poc_zaslon.Show()
                 Me.Hide()
                 txtPassword.Clear()
-                txtUsername.Clear()
-
             Else
                 MsgBox("Neuspješno logiranje")
+                txtPassword.Clear()
             End If
-            
-            End If
-            conn.Close()
+
+        End If
+        conn.Close()
 
     End Sub
 
     Private Sub btnIzlaz_Click(sender As Object, e As EventArgs) Handles btnIzlaz.Click
         Me.Close()
+
+    End Sub
+
+
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 End Class

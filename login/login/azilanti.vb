@@ -4,6 +4,7 @@ Imports System.Data
 
 Public Class azilanti
 
+    Public Shared korime As String
 
     Dim conn As SqlConnection
     Dim cmd As SqlCommand
